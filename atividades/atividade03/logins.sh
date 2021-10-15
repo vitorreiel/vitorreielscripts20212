@@ -1,4 +1,4 @@
-# 1. Comando
+#1. Comando
 grep -v "sshd" auth.log
 # 2. Comando
 grep -E "sshd:session.*user j" auth.log
