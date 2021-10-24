@@ -1,6 +1,6 @@
 # 1. Comando
 grep -v "sshd" auth.log
-# 2. Comand
+# 2. Comando
 grep -E "sshd.*for j" auth.log
 # 3. Comando
 grep -E "sshd.*root" auth.log
