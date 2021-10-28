@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 2,0
 d=$(date +%d)
 m=$(date +%m)
 a=$(date +%G)
