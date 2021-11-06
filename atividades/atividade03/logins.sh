@@ -1,3 +1,4 @@
+# Correção: 2,0
 # 1. Comando
 grep -v "sshd" auth.log
 # 2. Comando
