@@ -1,4 +1,6 @@
 #!/bin/bash
+# Correção: 0,5
+
 m=0
 n=0
 array[1]=$1

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 1,5
 case $1 in adicionar)
 	if [ -e agenda.db ]; then
 		echo "Usuário $2 adicionado." && echo $2:$3 >> agenda.db
