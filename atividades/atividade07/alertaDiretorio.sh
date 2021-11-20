@@ -12,7 +12,8 @@ while true; do
 	ls . > ../historico.txt
 	cd ..
 	if [ $f -gt $n ]; then
-		echo "["$dt"] Alteração!" $n"->"$f". Adicionados >" $m | tee -a dirSensors.log
+		t=$(diff teste.txt historico.txt | grep ^\> )
+		echo "["$dt"] Alteração!" $n"->"$f". Adicionados" $t | tee -a dirSensors.log
 	else
 		if [ $f -lt $n ]; then
 			r=$(diff historico.txt teste.txt | grep ^\> )
