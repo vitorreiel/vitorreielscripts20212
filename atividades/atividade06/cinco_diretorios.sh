@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 1,0
 mkdir cinco
 cd cinco
 for i in {1..5}; do
