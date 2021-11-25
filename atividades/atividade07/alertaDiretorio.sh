@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 1,0
 #A primeira execução do script ele faz apenas uma verificação.
 dt=$(date +%d-%m-%G && date +%X)
 n=0
