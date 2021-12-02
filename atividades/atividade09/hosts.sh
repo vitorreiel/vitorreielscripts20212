@@ -1,4 +1,9 @@
 #!/bin/bash
+cn=0
+if [ $cn -eq 0 ]; then
+	touch hosts.db
+	cn=1
+fi
 while getopts "a:d:l:i:r" arg; do
 	n=$(grep -i $2 hosts.db)
 	case $arg in a)
