@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 0,0
 
 TECLA=
 VISOR=
