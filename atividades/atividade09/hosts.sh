@@ -1,4 +1,6 @@
 #!/bin/bash
+# Correção: 0,3
+# Você não implementou as funções. Colocou l: no lugar de apenas l, daí a listagem não funciona.
 cn=0
 if [ $cn -eq 0 ]; then
 	touch hosts.db
