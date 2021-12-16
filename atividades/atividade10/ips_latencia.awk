@@ -1,3 +1,4 @@
+# Correção: 0,5
 BEGIN { print "Aguarde... Isso pode demorar uma pouco."}
 {
         comando = "ping -c3 "$1" | grep rtt | cut -f5 -d'/'"
