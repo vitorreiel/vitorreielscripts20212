@@ -7,3 +7,4 @@ Michel      Redes       800
 Jefferson   Sistemas    5000
 Márcio      Sistemas    6000
 Marcos      Redes       11000
+Jefferson   Design       20000
