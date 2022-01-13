@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 4,0. Tudo OK!!!
 
 SUBREDE=$(aws ec2 describe-subnets --query 'Subnets[0].SubnetId' --output text)
 GRUPO=$(aws ec2 create-security-group --group-name "scriptsVRML" --description "Grupo de Seguranca para Scripts" --output text)
