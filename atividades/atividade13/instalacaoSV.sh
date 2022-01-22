@@ -2,7 +2,7 @@
 
 sudo yum install -y httpd
 sudo systemctl start httpd
-sudo systemctl enable hhtpd
+sudo systemctl enable httpd
 sudo touch /var/www/html/texto.html
 sudo chown ec2-user /var/www/html/texto.html
 
