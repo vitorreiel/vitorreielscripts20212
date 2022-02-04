@@ -1,7 +1,7 @@
 #!/bin/bash
 # pegando a SUBREDE disponivel e criando o grupo de segurança
 SUBREDE=$(aws ec2 describe-subnets --query 'Subnets[0].SubnetId' --output text)
-GRUPO=$(aws ec2 create-security-group --group-name "scriptVRML" --description "Grupo de Seguranca para Scripts" --output text)
+GRUPO=$(aws ec2 create-security-group --group-name "scriptsVRML" --description "Grupo de Seguranca para Scripts" --output text)
 
 
 # pegando o ip publico e liberando as portas 22, 80 e 3306
@@ -44,13 +44,13 @@ cat<<EOF >  cliente.sh
 yum install -y mariadb mariadb-server
 systemctl start mariadb
 systemctl enable mariadb
+echo -e "[client]\nuser="$2"\npassword="$3 > /root/.my.cnf
 echo -e "[client]\nuser="$2"\npassword="$3 > /home/ec2-user/.my.cnf
-echo -e "(mysql -u "$2" scripts -h "$IP1")<<EOF\nUSE scripts;\nCREATE TABLE Teste ( atividade INT );\nEOF" > /home/ec2-user/scripts.sh
+echo -e "sudo mysql -u "$2" scripts -h "$IP1"<<EOF\nUSE scripts;\nCREATE TABLE Teste ( atividade INT );\nEOF\nrm /home/ec2-user/scripts.sh" > /home/ec2-user/scripts.sh
 chmod +x /home/ec2-user/scripts.sh
 cd /home/ec2-user
 ./scripts.sh
 EOF
-
 
 
 # criando a segunda instancia e fazendo a verificação de status da máquina
