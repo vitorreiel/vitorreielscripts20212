@@ -14,11 +14,11 @@ PORT3306=$(aws ec2 authorize-security-group-ingress --group-id $GRUPO --protocol
 # criando arquivo para instalar e configurar servidor MySQL
 cat<<EOF > servidor.sh
 #!/bin/bash
-sudo yum install -y mariadb-server
-sudo systemctl start mariadb
-sudo systemctl enable mariadb
+yum install -y mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
 echo -e "mysql<<EOF\nCREATE DATABASE scripts;\nCREATE USER '"$2"'@'%' IDENTIFIED BY '"$3"';\nGRANT ALL PRIVILEGES ON scripts.* TO '"$2"'@'%';\nUSE scripts;\nEOF\nrm /home/ec2-user/scripts.sh" > /home/ec2-user/scripts.sh
-sudo chmod +x /home/ec2-user/scripts.sh
+chmod +x /home/ec2-user/scripts.sh
 cd /home/ec2-user
 ./scripts.sh
 EOF
@@ -41,12 +41,12 @@ echo "IP Privado do Banco de Dados: "$IP1
 # criando arquivo para instalar e configurar o cliente do MySQL e adicionar a Tabela Teste
 cat<<EOF >  cliente.sh
 #!/bin/bash
-sudo yum install -y mariadb mariadb-server
-sudo systemctl start mariadb
-sudo systemctl enable mariadb
+yum install -y mariadb mariadb-server
+systemctl start mariadb
+systemctl enable mariadb
 echo -e "[client]\nuser="$2"\npassword="$3 > /home/ec2-user/.my.cnf
 echo -e "(mysql -u "$2" scripts -h "$IP1")<<EOF\nUSE scripts;\nCREATE TABLE Teste ( atividade INT );\nEOF" > /home/ec2-user/scripts.sh
-sudo chmod +x /home/ec2-user/scripts.sh
+chmod +x /home/ec2-user/scripts.sh
 cd /home/ec2-user
 ./scripts.sh
 EOF
