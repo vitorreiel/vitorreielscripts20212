@@ -41,7 +41,7 @@ service httpd start
 systemctl enable httpd
 echo -e "[client]\nuser="$2"\npassword="$3 > /root/.my.cnf
 echo -e "[client]\nuser="$2"\npassword="$3 > /home/ec2-user/.my.cnf
-echo -e "sudo mysql -u "$2" -h "$ENDPOINT"<<EOF\nCREATE DATABASE wordpress;\nCREATE USER '"$2"'@'%' IDENTIFIED BY '"$3"';\nGRANT ALL PRIVILEGES ON scripts.* TO '"$2"'@'%';\nUSE wordpress;\nEOF\nrm /home/ec2-user/wordpress.sh" > /home/ec2-user/wordpress.sh
+echo -e "sudo mysql -u "$2" -h "$ENDPOINT"<<EOF\nCREATE DATABASE wordpress;\nCREATE USER '"$2"'@'%' IDENTIFIED BY '"$3"';\nGRANT ALL PRIVILEGES ON wordpress.* TO '"$2"'@'%';\nUSE wordpress;\nEOF\nrm /home/ec2-user/wordpress.sh" > /home/ec2-user/wordpress.sh
 chmod +x /home/ec2-user/wordpress.sh
 cd /home/ec2-user
 ./wordpress.sh
