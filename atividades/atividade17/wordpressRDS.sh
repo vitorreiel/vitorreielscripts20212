@@ -1,4 +1,5 @@
 #!/bin/bash
+# Correção: 2,0
 # pegando a lista de SUBREDE disponivel, criando o grupo de segurança e ainda, criando uma DB-SUBNET, para caso o usuario não possua uma em sua AWS.
 SUBREDE0=$(aws ec2 describe-subnets --query 'Subnets[0].SubnetId' --output text)
 SUBREDE1=$(aws ec2 describe-subnets --query 'Subnets[1].SubnetId' --output text)
